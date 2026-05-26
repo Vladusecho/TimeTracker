@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QHeaderView>
+#include "adminpanel.h"
 
 MainWindow::MainWindow(const User &currentUser, QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +24,7 @@ MainWindow::MainWindow(const User &currentUser, QWidget *parent)
 
     // Настройка прав доступа
     setupPermissions();
+    setupAdminPanel();
 
     // ── Timer ─────────────────────────────────────────────────────────────
     m_timer = new QTimer(this);
@@ -42,6 +44,7 @@ MainWindow::MainWindow(const User &currentUser, QWidget *parent)
     connect(ui->btnEditEntry,  &QPushButton::clicked, this, &MainWindow::onEditEntry);
     connect(ui->btnDeleteEntry, &QPushButton::clicked, this, &MainWindow::onDeleteEntry);
     connect(ui->btnExportCsv,  &QPushButton::clicked, this, &MainWindow::onExportCsv);
+    connect(ui->btnAdminPanel, &QPushButton::clicked, this, &MainWindow::onAdminPanel);
 
     // double-click on history row → edit
     connect(ui->historyTable, &QTableWidget::doubleClicked, this, &MainWindow::onEditEntry);
@@ -390,4 +393,29 @@ QString MainWindow::formatDuration(int secs)
         .arg(h, 2, 10, QChar('0'))
         .arg(m, 2, 10, QChar('0'))
         .arg(s, 2, 10, QChar('0'));
+}
+
+void MainWindow::setupAdminPanel()
+{
+    if (m_currentUser.isAdmin()) {
+        ui->btnAdminPanel->setVisible(true);
+        ui->btnAdminPanel->setFixedWidth(32);
+        ui->btnAdminPanel->setStyleSheet(
+            "QPushButton { background-color: #89b4fa; color: white; border-radius: 4px; }"
+            "QPushButton:hover { background-color: #89d4fa; }"
+            );
+    } else {
+        ui->btnAdminPanel->setVisible(false);
+    }
+}
+
+void MainWindow::onAdminPanel()
+{
+    if (!m_currentUser.isAdmin()) {
+        QMessageBox::warning(this, "Доступ запрещен", "Только администратор может управлять пользователями");
+        return;
+    }
+
+    AdminPanel panel(this);
+    panel.exec();
 }

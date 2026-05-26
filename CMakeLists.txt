@@ -26,6 +26,12 @@ set(PROJECT_SOURCES
     authdialog.cpp
     authdialog.h
     authdialog.ui
+    adminpanel.cpp
+    adminpanel.h
+    adminpanel.ui
+    userdialog.cpp
+    userdialog.h
+    userdialog.ui
     user.h
     passwordmanager.h
 )
@@ -35,7 +41,13 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         passwordmanager.h
         user.h
         authdialog.h
-        authdialog.cpp)
+        authdialog.cpp
+        userdialog.h
+        userdialog.cpp
+        userdialog.ui
+        adminpanel.h
+        adminpanel.cpp
+        adminpanel.ui)
 else()
     if(ANDROID)
         add_library(TimeTracker SHARED ${PROJECT_SOURCES})

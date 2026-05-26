@@ -10,61 +10,109 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Time Tracker for Workers</string>
-  </property>
   <property name="minimumSize">
    <size>
     <width>700</width>
     <height>500</height>
    </size>
   </property>
-
+  <property name="windowTitle">
+   <string>Time Tracker for Workers</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="rootLayout">
-    <property name="leftMargin"><number>0</number></property>
-    <property name="topMargin"><number>0</number></property>
-    <property name="rightMargin"><number>0</number></property>
-    <property name="bottomMargin"><number>0</number></property>
-    <property name="spacing"><number>0</number></property>
-
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QFrame" name="statusFrame">
       <property name="styleSheet">
        <string>QFrame { background-color: #1e1e2e; } QLabel { color: #cdd6f4; }</string>
       </property>
-      <property name="fixedHeight">
-       <number>50</number>
+      <property name="fixedHeight" stdset="0">
+       <number>60</number>
       </property>
       <layout class="QHBoxLayout" name="statusLayout">
-       <property name="leftMargin"><number>16</number></property>
-       <property name="topMargin"><number>0</number></property>
-       <property name="rightMargin"><number>16</number></property>
-       <property name="bottomMargin"><number>0</number></property>
+       <property name="leftMargin">
+        <number>16</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>16</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QLabel" name="lblStatus">
-         <property name="text">
-          <string>Таймер остановлен</string>
-         </property>
          <property name="font">
           <font>
            <pointsize>11</pointsize>
           </font>
+         </property>
+         <property name="text">
+          <string>Таймер остановлен</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAdminPanel">
+         <property name="visible">
+          <bool>false</bool>
+         </property>
+         <property name="toolTip">
+          <string>Управление пользователями (только для администратора)</string>
+         </property>
+         <property name="styleSheet">
+          <string>QPushButton { 
+      background-color: #89b4fa; 
+      color: white; 
+      border-radius: 6px; 
+      padding: 5px 15px;
+      font-weight: bold;
+      font-size: 12px;
+     } 
+     QPushButton:hover { 
+      background-color: #a6d4fa; 
+     }</string>
+         </property>
+         <property name="text">
+          <string>👥 </string>
+         </property>
+         <property name="fixedHeight" stdset="0">
+          <number>35</number>
          </property>
         </widget>
        </item>
        <item>
         <spacer>
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
          </property>
         </spacer>
        </item>
        <item>
         <widget class="QLabel" name="lblTimer">
-         <property name="text">
-          <string>00:00:00</string>
-         </property>
          <property name="font">
           <font>
            <pointsize>22</pointsize>
@@ -74,25 +122,36 @@
          <property name="styleSheet">
           <string>color: #a6e3a1;</string>
          </property>
+         <property name="text">
+          <string>00:00:00</string>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-
     <item>
      <widget class="QTabWidget" name="tabWidget">
-
       <widget class="QWidget" name="tabTracker">
        <attribute name="title">
         <string>Трекер</string>
        </attribute>
        <layout class="QHBoxLayout" name="trackerLayout">
-        <property name="leftMargin"><number>12</number></property>
-        <property name="topMargin"><number>12</number></property>
-        <property name="rightMargin"><number>12</number></property>
-        <property name="bottomMargin"><number>12</number></property>
-        <property name="spacing"><number>12</number></property>
+        <property name="spacing">
+         <number>12</number>
+        </property>
+        <property name="leftMargin">
+         <number>12</number>
+        </property>
+        <property name="topMargin">
+         <number>12</number>
+        </property>
+        <property name="rightMargin">
+         <number>12</number>
+        </property>
+        <property name="bottomMargin">
+         <number>12</number>
+        </property>
         <item>
          <layout class="QVBoxLayout" name="leftLayout">
           <item>
@@ -107,45 +166,51 @@
             <item>
              <spacer>
               <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
               </property>
              </spacer>
             </item>
             <item>
              <widget class="QPushButton" name="btnAddTask">
-              <property name="text">
-               <string>Добавить</string>
-              </property>
               <property name="toolTip">
                <string>Добавить задачу</string>
               </property>
-              <property name="fixedWidth">
+              <property name="text">
+               <string>Добавить</string>
+              </property>
+              <property name="fixedWidth" stdset="0">
                <number>100</number>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="btnEditTask">
-              <property name="text">
-               <string>Редактировать</string>
-              </property>
               <property name="toolTip">
                <string>Редактировать</string>
               </property>
-              <property name="fixedWidth">
+              <property name="text">
+               <string>Редактировать</string>
+              </property>
+              <property name="fixedWidth" stdset="0">
                <number>100</number>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="btnDeleteTask">
-              <property name="text">
-               <string>Удалить</string>
-              </property>
               <property name="toolTip">
                <string>Удалить задачу</string>
               </property>
-              <property name="fixedWidth">
+              <property name="text">
+               <string>Удалить</string>
+              </property>
+              <property name="fixedWidth" stdset="0">
                <number>100</number>
               </property>
              </widget>
@@ -163,47 +228,58 @@
         </item>
         <item>
          <layout class="QVBoxLayout" name="rightLayout">
-          <property name="spacing"><number>12</number></property>
+          <property name="spacing">
+           <number>12</number>
+          </property>
           <item>
            <spacer>
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
            </spacer>
           </item>
           <item>
            <widget class="QLabel" name="lblActiveTask">
+            <property name="styleSheet">
+             <string>color: #888; font-size: 13px;</string>
+            </property>
             <property name="text">
              <string>Выберите задачу из списка</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
-            </property>
-            <property name="styleSheet">
-             <string>color: #888; font-size: 13px;</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btnStartStop">
-            <property name="text">
-             <string>Старт</string>
-            </property>
-            <property name="minimumHeight">
-             <number>48</number>
-            </property>
             <property name="styleSheet">
              <string>QPushButton { background-color: #40a02b; color: white; font-size: 15px; font-weight: bold; border-radius: 8px; } QPushButton:hover { background-color: #50c030; }</string>
+            </property>
+            <property name="text">
+             <string>Старт</string>
             </property>
            </widget>
           </item>
           <item>
            <spacer>
             <property name="orientation">
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
            </spacer>
           </item>
@@ -215,14 +291,14 @@
             <layout class="QVBoxLayout" name="groupTodayLayout">
              <item>
               <widget class="QLabel" name="lblTodayTotal">
+               <property name="styleSheet">
+                <string>font-size: 14px; font-weight: bold;</string>
+               </property>
                <property name="text">
                 <string>Итого: 00:00:00</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-               <property name="styleSheet">
-                <string>font-size: 14px; font-weight: bold;</string>
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -233,17 +309,26 @@
         </item>
        </layout>
       </widget>
-
       <widget class="QWidget" name="tabHistory">
        <attribute name="title">
         <string>История</string>
        </attribute>
        <layout class="QVBoxLayout" name="historyLayout">
-        <property name="leftMargin"><number>12</number></property>
-        <property name="topMargin"><number>12</number></property>
-        <property name="rightMargin"><number>12</number></property>
-        <property name="bottomMargin"><number>12</number></property>
-        <property name="spacing"><number>8</number></property>
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <property name="leftMargin">
+         <number>12</number>
+        </property>
+        <property name="topMargin">
+         <number>12</number>
+        </property>
+        <property name="rightMargin">
+         <number>12</number>
+        </property>
+        <property name="bottomMargin">
+         <number>12</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="filterLayout">
           <item>
@@ -281,11 +366,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboTaskFilter">
-            <property name="minimumWidth">
-             <number>160</number>
-            </property>
-           </widget>
+           <widget class="QComboBox" name="comboTaskFilter"/>
           </item>
           <item>
            <widget class="QPushButton" name="btnRefresh">
@@ -297,7 +378,13 @@
           <item>
            <spacer>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
            </spacer>
           </item>
@@ -312,17 +399,17 @@
         </item>
         <item>
          <widget class="QTableWidget" name="historyTable">
-          <property name="columnCount">
-           <number>6</number>
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
           </property>
           <property name="alternatingRowColors">
            <bool>true</bool>
           </property>
           <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
           </property>
-          <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
+          <property name="columnCount">
+           <number>6</number>
           </property>
           <attribute name="horizontalHeaderStretchLastSection">
            <bool>true</bool>
@@ -363,18 +450,24 @@
          <layout class="QHBoxLayout" name="historyButtonsLayout">
           <item>
            <widget class="QLabel" name="lblHistoryTotal">
-            <property name="text">
-             <string>Итого: 00:00:00</string>
-            </property>
             <property name="styleSheet">
              <string>font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>Итого: 00:00:00</string>
             </property>
            </widget>
           </item>
           <item>
            <spacer>
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
            </spacer>
           </item>

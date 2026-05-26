@@ -36,6 +36,8 @@ private slots:
     void onDeleteEntry();
     void onExportCsv();
 
+    void onAdminPanel();
+
 private:
     Ui::MainWindow *ui;
 
@@ -50,6 +52,8 @@ private:
     void refreshHistoryTable();
     void setupPermissions();      // Настройка прав доступа
     void updateTodayTotal();      // Обновление итога за сегодня
+
+    void setupAdminPanel();
 
     static QString formatDuration(int secs);
 };
